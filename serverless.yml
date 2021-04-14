@@ -38,12 +38,14 @@ functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
   # - path: url path is /notes
   # - method: POST request
+  # - authorizer: authenticate using the AWS IAM role
   create:
     handler: create.main
     events:
       - http:
           path: notes
           method: post
+          authorizer: aws_iam
           
   get:
     # Defines an HTTP API endpoint that calls the main function in get.js
